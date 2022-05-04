@@ -10,7 +10,7 @@ export const Repo = (props) => {
 }
 
 const Repos = (props) => {
-    let reposElements = props.users_repos.map(ur => <Repo info={ur}/>)
+    let reposElements = props.users_repos.map(ur => <Repo key={ur.id} info={ur}/>)
     return (
         <div className={s.container}>
             <div className={s.label}>Repos</div>

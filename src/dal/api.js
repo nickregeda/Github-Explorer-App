@@ -2,7 +2,7 @@ import * as axios from 'axios';
 
 const instance = axios.create({
     headers: {
-        'Authorization': 'Bearer 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'
+        'Authorization': 'Bearer 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'
     },
 })
 
@@ -18,7 +18,7 @@ export const gitAPI = {
     getUsersRepos(q) {
         return instance.get(`https://api.github.com/users/${q}/repos?per_page=15`).then(
             response => {
-                debugger
+                // debugger
                 return response.data
             }
         )

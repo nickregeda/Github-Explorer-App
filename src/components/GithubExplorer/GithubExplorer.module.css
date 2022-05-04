@@ -52,7 +52,7 @@
     color: white;
 }
 
-.repos_list {
+.users_list {
     max-width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -62,4 +62,19 @@
 .error_mes {
     margin-left: 10px;
     color: #ff0000;
+}
+
+.last_seen_users {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.last_seen_users_label{
+    width: 100%;
+    font-size: 22px;
+    color: white;
+    margin: 20px 0px;
+    text-align: left;
 }

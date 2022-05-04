@@ -3,11 +3,13 @@ import {gitAPI} from "../dal/api";
 const SET_USERS = 'SET_USERS';
 const SET_USERS_REPOS = 'SET_USERS_REPOS';
 const SET_PROFILE = 'SET_PROFILE';
+const SET_LAST_SEEN_USER = 'SET_LAST_SEEN_USER';
 
 const initialState = {
     users: [],
     users_repos: [],
     profile: null,
+    last_seen_users: [],
 };
 
 const GithubExplorerReducer = (state = initialState, action) => {
@@ -27,6 +29,13 @@ const GithubExplorerReducer = (state = initialState, action) => {
                 ...state,
                 profile: action.profile,
             }
+        case SET_LAST_SEEN_USER:
+            return {
+                ...state,
+                last_seen_users: state.last_seen_users.length < 10 && state.last_seen_users.every(user => user.id !== action.user.id) ? [...state.last_seen_users, action.user] : state.last_seen_users.every(user => user.id !== action.user.id) ? (state.last_seen_users.splice(0, 1), [...state.last_seen_users, action.user])
+                    :
+                    state.last_seen_users
+            }
         default:
             return state;
     }
@@ -38,6 +47,7 @@ export default GithubExplorerReducer;
 export const setUsers = (users) => ({type: SET_USERS, users});
 export const setUsersRepos = (repos) => ({type: SET_USERS_REPOS, repos})
 export const setProfile = (profile) => ({type: SET_PROFILE, profile})
+export const setLastSeenUser = (id, login, avatar_url) => ({type: SET_LAST_SEEN_USER, user: {id, login, avatar_url}})
 
 //thunk creators
 export const getUsers = (q) => {
@@ -60,7 +70,9 @@ export const getProfile = (id) => {
     return (dispatch) => {
         return gitAPI.getProfile(id).then(
             response => {
+                debugger
                 dispatch(setProfile(response));
+                dispatch(setLastSeenUser(response.id, response.login, response.avatar_url))
             })
     }
 }

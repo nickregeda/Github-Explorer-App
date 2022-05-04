@@ -24,6 +24,9 @@ const GithubExplorer = (props) => {
     let usersElements = props.users.map(u =>
         <User key={u.id} info={u}/>)
 
+    let lastSeenUsersElements = props.last_seen_users.map(u =>
+        <User key={u.id} info={u}/>)
+
 
     let onSubmit = (values) => {
         props.getUsers(values.query)
@@ -39,9 +42,17 @@ const GithubExplorer = (props) => {
                     return <GithubExplorerForm/>
                 }}
             </Formik>
-            <div className={s.repos_list}>
+            <div className={s.users_list}>
                 {usersElements}
             </div>
+            {props.last_seen_users.length > 0 &&
+                <>
+                    <div className={s.last_seen_users_label}>Last seen users</div>
+                    <div className={s.last_seen_users}>
+                        {lastSeenUsersElements}
+                    </div>
+                </>
+            }
         </div>
     )
 }

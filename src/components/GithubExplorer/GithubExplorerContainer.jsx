@@ -6,6 +6,7 @@ let mapStateToProps = (state) => {
     return {
         users: state.GithubExplorerReducer.users,
         users_repos: state.GithubExplorerReducer.users_repos,
+        last_seen_users: state.GithubExplorerReducer.last_seen_users,
     }
 }
 
