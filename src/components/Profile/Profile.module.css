@@ -1,0 +1,20 @@
+import ReposContainer from "./Repos/ReposContainer";
+
+const Profile = (props) => {
+    if (!props.profile) {
+        return <div>loading...</div>
+    }
+    return (
+        <div>
+            <div>{props.profile.login}</div>
+            <div><img style={{width: '150px'}} src={props.profile.avatar_url} alt=""/></div>
+            <div>name: {props.profile.name}</div>
+            <div>public repos: {props.profile.public_repos}</div>
+            <div>followers: {props.profile.followers}</div>
+            <div>following: {props.profile.following}</div>
+            <ReposContainer/>
+        </div>
+    )
+}
+
+export default Profile;

@@ -1,0 +1,10 @@
+const Repos = (props) => {
+    let reposElements = props.users_repos.map(ur => <div>{ur.name}</div>)
+    return (
+        <div>
+            {reposElements}
+        </div>
+    )
+}
+
+export default Repos;
