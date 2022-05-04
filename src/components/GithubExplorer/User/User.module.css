@@ -1,0 +1,22 @@
+.container{
+    margin: 0 10px 10px 10px;
+    transition: all 0.1s;
+}
+.container:hover{
+    transform: scale(1.1);
+    filter: drop-shadow(0px 0px 1px white);
+}
+
+.link{
+    text-decoration: none;
+}
+
+.avatar {
+    width: 100px;
+    border-radius: 5px;
+}
+
+.login {
+    color: white;
+    text-align: center;
+}

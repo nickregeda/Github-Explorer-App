@@ -1,10 +1,40 @@
-const Repos = (props) => {
-    let reposElements = props.users_repos.map(ur => <div>{ur.name}</div>)
-    return (
-        <div>
-            {reposElements}
-        </div>
-    )
+.container {
+    margin-top: 20px;
+    color: white;
 }
 
-export default Repos;
+.label {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.repos_container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.repo_item {
+    text-align: center;
+    height: 50px;
+    padding: 20px;
+    margin: 10px 10px;
+    min-width: 50px;
+    border: solid 1px white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.repo_language {
+    font-size: 14px;
+    color: #696969;
+}
+
+.repo_item:hover {
+    background: white;
+    color: black;
+}
+

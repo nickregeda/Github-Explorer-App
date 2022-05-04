@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 100px 20px 50px 20px;
+    width: 1080px;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: solid 2px white;
+
+    background: #161636;
+}
+
+.field, .button {
+    box-sizing: border-box;
+    height: 40px;
+    outline: none;
+    border-radius: 3px;
+    border: none;
+    font-size: 16px;
+}
+
+.form {
+    margin-bottom: 50px;
+}
+
+.field {
+    padding: 10px;
+    width: 80%;
+    background: rgba(255, 255, 255, 0);
+    color: white;
+}
+
+.button {
+    width: 20%;
+    cursor: pointer;
+    background: rgb(255, 255, 255);
+}
+
+.button:hover {
+    background: #161636;
+    color: white;
+}
+
+.query_label {
+    display: block;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.repos_list {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.error_mes {
+    margin-left: 10px;
+    color: #ff0000;
+}

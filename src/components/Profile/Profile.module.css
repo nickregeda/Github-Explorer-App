@@ -1,20 +1,45 @@
-import ReposContainer from "./Repos/ReposContainer";
-
-const Profile = (props) => {
-    if (!props.profile) {
-        return <div>loading...</div>
-    }
-    return (
-        <div>
-            <div>{props.profile.login}</div>
-            <div><img style={{width: '150px'}} src={props.profile.avatar_url} alt=""/></div>
-            <div>name: {props.profile.name}</div>
-            <div>public repos: {props.profile.public_repos}</div>
-            <div>followers: {props.profile.followers}</div>
-            <div>following: {props.profile.following}</div>
-            <ReposContainer/>
-        </div>
-    )
+.container {
+    padding: 30px 20px;
+    /*border: solid 1px white;*/
+    width: 1080px;
+    margin: 0 auto;
 }
 
-export default Profile;
+.user_block {
+    padding: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+
+    width: 30%;
+    margin: 0 auto;
+
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px white;
+}
+
+.avatar_n_login_container {
+    text-align: center;
+    flex: 0 0 50%;
+}
+
+.avatar {
+    border-radius: 5px;
+}
+
+.user_info_container {
+    flex: 0 0 50%;
+    padding: 0px 5px;
+}
+
+.user_info_container div:first-child {
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.user_info_container div:not(:first-child) {
+    margin-bottom: 10px;
+}
+
+
