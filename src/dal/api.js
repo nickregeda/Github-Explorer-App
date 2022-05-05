@@ -2,23 +2,23 @@ import * as axios from 'axios';
 
 const instance = axios.create({
     headers: {
-        'Authorization': 'Bearer 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'
+        'Authorization': 'Bearer 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'
     },
 })
 
 export const gitAPI = {
-    getUsers(q) {
-        return instance.get(`https://api.github.com/search/users?q=${q}&sort=followers`).then(
+    getUsers(q, per_page, page) {
+        return instance.get(`https://api.github.com/search/users?q=${q}&sort=followers&per_page=${per_page}&page=${page}`).then(
             response => {
-                // debugger
-                return response.data.items;
+                if (response.status == 200) {
+                    return response.data;
+                }
             }
         )
     },
-    getUsersRepos(q) {
-        return instance.get(`https://api.github.com/users/${q}/repos?per_page=15`).then(
+    getUserRepos(q, per_page, page) {
+        return instance.get(`https://api.github.com/users/${q}/repos?per_page=${per_page}&page=${page}`).then(
             response => {
-                // debugger
                 return response.data
             }
         )

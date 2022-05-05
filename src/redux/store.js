@@ -1,9 +1,11 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
-import GithubExplorerReducer from "./GithubExplorerReducer";
+import ProfileReducer from "./ProfileReducer";
 import thunkMiddleware from 'redux-thunk'
+import UsersReducer from "./UsersReducer";
 
 let reducers = combineReducers({
-    GithubExplorerReducer
+    ProfileReducer,
+    UsersReducer,
 })
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

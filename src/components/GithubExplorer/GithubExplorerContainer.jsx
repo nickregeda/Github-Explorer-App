@@ -1,13 +1,16 @@
 import GithubExplorer from "./GithubExplorer";
 import {connect} from "react-redux";
-import {getUsers} from "../../redux/GithubExplorerReducer";
+import {getUsers, setUsersCurrentPage} from "../../redux/UsersReducer";
 
 let mapStateToProps = (state) => {
     return {
-        users: state.GithubExplorerReducer.users,
-        users_repos: state.GithubExplorerReducer.users_repos,
-        last_seen_users: state.GithubExplorerReducer.last_seen_users,
+        users: state.UsersReducer.users,
+        last_seen_users: state.UsersReducer.last_seen_users,
+
+        users_current_page: state.UsersReducer.users_current_page,
+        users_total_count: state.UsersReducer.users_total_count,
+        users_page_size: state.UsersReducer.users_page_size,
     }
 }
 
-export default connect(mapStateToProps, {getUsers})(GithubExplorer)
+export default connect(mapStateToProps, {getUsers, setUsersCurrentPage})(GithubExplorer)

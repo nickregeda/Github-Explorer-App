@@ -29,7 +29,7 @@
 
 .user_info_container {
     flex: 0 0 50%;
-    padding: 0px 5px;
+    padding: 0px 0px 0px 15px;
 }
 
 .user_info_container div:first-child {

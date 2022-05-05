@@ -1,9 +1,9 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getProfile, getUsersRepos} from "../../redux/GithubExplorerReducer";
 import {compose} from "redux";
 import withRouter from "../../hoc/withRouter";
+import {getProfile} from "../../redux/ProfileReducer";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
@@ -20,13 +20,13 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        profile: state.GithubExplorerReducer.profile
+        profile: state.ProfileReducer.profile
     }
 }
 
 
 export default compose(
-    connect(mapStateToProps, {getProfile, getUsersRepos}),
+    connect(mapStateToProps, {getProfile}),
     withRouter
 )
 (ProfileContainer);
